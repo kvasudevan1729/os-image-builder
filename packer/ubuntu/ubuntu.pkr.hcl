@@ -58,7 +58,7 @@ source "amazon-ebs" "ubuntu-base" {
   ssh_keypair_name     = var.ssh_keypair_name
   ssh_private_key_file = var.ssh_private_key_file
 
-  # uncomment to additional devices
+  # uncomment to add additional devices
   #launch_block_device_mappings {
   #  device_name = "/dev/sda1"
   #  volume_size = "10"
@@ -110,22 +110,22 @@ build {
 
   # install application tools
   provisioner "shell" {
-    script = "setup_hashicorp_tools.sh"
+    script = "scripts/setup_hashicorp_tools.sh"
   }
 
   provisioner "shell" {
-    script = "setup_nodejs.sh"
+    script = "scripts/setup_nodejs.sh"
   }
 
   provisioner "shell" {
-    script = "setup_kubectl.sh"
+    script = "scripts/setup_kubectl.sh"
     environment_vars = [
       "kubectl_version=${var.kubectl_version}",
     ]
   }
 
   provisioner "shell" {
-    script = "setup_helm.sh"
+    script = "scripts/setup_helm.sh"
   }
 
   # install security tools
@@ -143,6 +143,6 @@ build {
   }
 
   provisioner "shell" {
-    script = "ami_summary.sh"
+    script = "scripts/ami_summary.sh"
   }
 }
