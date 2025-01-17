@@ -1,0 +1,5 @@
+proxmox_api_url         = "https://cf-sg01.cellularorigins.co:8006/api2/json"
+proxmox_node            = "cf-sg01"
+proxmox_vm_storage_pool = "vm-templates"
+template_network_bridge = "vmbr0"
+cci_version             = "0.1.30549"
